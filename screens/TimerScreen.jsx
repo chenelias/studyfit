@@ -6,12 +6,14 @@ import { StyleSheet } from 'react-native'
 
 function TimerScreen() {
     const [timerisplaying, settimerisplaying] = React.useState(false)
+    // const hours = Math.floor(remainingTime / 3600)
+    // const minutes = Math.floor((remainingTime % 3600) / 60)
+    // const seconds = remainingTime % 60
     return (
         <View style={centerstyle.container} justifyContent="center" alignItems="center" display="flex">
             <Center>
                 <Box alignItems="center">
-                    <Input
-
+                    {/* <Input
                         position="absolute"
                         top="40%"
                         fontSize="30"
@@ -21,19 +23,30 @@ function TimerScreen() {
                         TextAlign="center"
                         bg="gray.500"
                         width="210"
-                    />
+                    /> */}
                     <CountdownCircleTimer
                         updateInterval={0}
-                        size={250}
+                        size={300}
+                        strokeWidth={15}
                         isPlaying={timerisplaying}
-                        duration={20}
+                        duration={0}
                         colors="#836bc5"
                     >
-                        {/* {({ remainingTime }) => (
-                            <Text fontSize="40" fontWeight="bold">
-                                {remainingTime}s
-                            </Text>
-                        )} */}
+
+                        {({ remainingTime }) => {
+                            return (
+                                <Text color="blue.500" fontSize="50" fontWeight="bold">
+                                    {Math.floor(remainingTime / 3600) === 0
+                                        ? ''
+                                        : Math.floor(remainingTime / 3600) + ':'}
+                                    {Math.floor((remainingTime % 3600) / 60) === 0
+                                        ? ''
+                                        : Math.floor((remainingTime % 3600) / 60) + ':'}
+                                    {remainingTime % 60}
+                                    {remainingTime < 60 ? 's' : ''}
+                                </Text>
+                            )
+                        }}
                     </CountdownCircleTimer>
                 </Box>
             </Center>

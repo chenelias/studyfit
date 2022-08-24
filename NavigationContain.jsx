@@ -25,7 +25,7 @@ export default function NavigationContain() {
                     name="History"
                     options={{
                         tabBarIcon: ({ focused, color, size }) => (
-                            <Ionicons name={focused ? 'recording' : 'recording-outline'} color={color} size={35} />
+                            <Ionicons name={focused ? 'recording' : 'recording-outline'} color={color} size={30} />
                         ),
                     }}
                     component={HistoryScreen}
