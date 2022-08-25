@@ -1,58 +1,16 @@
-import React, { useState } from 'react'
-import { Text, View, Box, IconButton, Center, Input } from 'native-base'
+import React, { useState, useEffect } from 'react'
+import { Text, View, Box, IconButton, Button, Center, Flex, Input } from 'native-base'
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, TextInput } from 'react-native'
 
 function TimerScreen() {
     const [timerisplaying, settimerisplaying] = React.useState(false)
-    const [timerduration, settimerduration] = React.useState(10)
-
-    // <Flex direction="row">
-    //                                 <Input
-    //                                     maxLength={2}
-    //                                     fontSize="50"
-    //                                     fontweight="bold"
-    //                                     variant="Outline"
-    //                                     p="0"
-    //                                     width="60"
-    //                                     placeholder="00"
-    //                                     textAlign="right"
-    //                                     keyboardType="numeric"
-    //                                     defaultValue={0}
-    //                                     // onChangeText={(x) => (sec = Number(x.target.value))}
-    //                                 />
-    //                                 <Text fontSize="55" fontWeight="bold">
-    //                                     :
-    //                                 </Text>
-    //                                 <Input
-    //                                     defaultValue={0}
-    //                                     maxLength={2}
-    //                                     fontSize="50"
-    //                                     fontweight="bold"
-    //                                     variant="Outline"
-    //                                     p="0"
-    //                                     width="60"
-    //                                     placeholder="00"
-    //                                     textAlign="right"
-    //                                     keyboardType="numeric"
-    //                                 />
-    //                                 <Text fontSize="55" fontWeight="bold">
-    //                                     :
-    //                                 </Text>
-    //                                 <Input
-    //                                     maxLength={2}
-    //                                     defaultValue={0}
-    //                                     fontSize="50"
-    //                                     fontweight="bold"
-    //                                     variant="Outline"
-    //                                     p="0"
-    //                                     width="60"
-    //                                     placeholder="00"
-    //                                     textAlign="right"
-    //                                     keyboardType="numeric"
-    //                                 />
-    //                             </Flex>
+    const [timerduration, settimerduration] = React.useState(0)
+    const [spbtnstate, setspbtnstate] = React.useState(true) // true:Play false:stop
+    React.useEffect(() => {
+        setspbtnstate((x) => !x)
+    }, [timerisplaying])
     return (
         <View style={centerstyle.container} justifyContent="center" alignItems="center" display="flex">
             <Center>
@@ -62,11 +20,23 @@ function TimerScreen() {
                         size={300}
                         strokeWidth={15}
                         isPlaying={timerisplaying}
-                        duration={10}
+                        duration={timerduration}
                         colors="#836bc5"
                     >
                         {({ remainingTime }) => {
-                            return (
+                            return timerduration === 0 ? (
+                                <TextInput
+                                    style={inputtextstyle.styles}
+                                    maxLength={2}
+                                    variant="Outline"
+                                    placeholder="00"
+                                    textAlign="right"
+                                    keyboardType="numeric"
+                                    defaultValue={0}
+                                    returntype="done"
+                                    onSubmitEditing={(x) => settimerduration(Number(x))}
+                                />
+                            ) : (
                                 <Text color="blue.500" fontSize="50" fontWeight="bold">
                                     {Math.floor(remainingTime / 3600) === 0
                                         ? ''
@@ -82,21 +52,27 @@ function TimerScreen() {
                     </CountdownCircleTimer>
                 </Box>
             </Center>
-            <IconButton
-                height="90"
-                width="90"
-                onPress={() => settimerisplaying((x) => !x)}
-                mt="10"
-                icon={
-                    timerisplaying ? (
-                        <Ionicons size={60} color="#000" name="stop" />
-                    ) : (
-                        <Ionicons size={60} color="#000" name="play" />
-                    )
-                }
-                borderRadius="full"
-                bg="blue.500"
-            />
+            <Flex direction="row">
+                <IconButton
+                    height="90"
+                    width="90"
+                    onPress={() => settimerisplaying((x) => !x)}
+                    mt="10"
+                    icon={<Ionicons size={60} color="#000" name={timerduration===0?'play':(spbtnstate ? 'stop' : 'play')} />}
+                    borderRadius="full"
+                    bg="blue.500"
+                    mx="10"
+                />
+                <IconButton
+                    height="90"
+                    width="90"
+                    mt="10"
+                    icon={<Ionicons size={50} color="#000" name="flag" />}
+                    borderRadius="full"
+                    bg="blue.500"
+                    mx="10"
+                />
+            </Flex>
         </View>
     )
 }
@@ -107,6 +83,12 @@ const centerstyle = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+})
+const inputtextstyle = StyleSheet.create({
+    styles: {
+        fontSize: 60,
+        backgroundColor: 'gray',
     },
 })
 
