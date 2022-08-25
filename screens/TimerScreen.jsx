@@ -6,8 +6,7 @@ import { StyleSheet } from 'react-native'
 
 function TimerScreen() {
     const [timerisplaying, settimerisplaying] = React.useState(false)
-    const [timerduration,settimerduration] = React.useState(10)
-    
+    const [timerduration, settimerduration] = React.useState(10)
 
     // <Flex direction="row">
     //                                 <Input
