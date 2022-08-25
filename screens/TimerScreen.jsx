@@ -6,33 +6,66 @@ import { StyleSheet } from 'react-native'
 
 function TimerScreen() {
     const [timerisplaying, settimerisplaying] = React.useState(false)
-    // const hours = Math.floor(remainingTime / 3600)
-    // const minutes = Math.floor((remainingTime % 3600) / 60)
-    // const seconds = remainingTime % 60
+    const [timerduration,settimerduration] = React.useState(10)
+    
+
+    // <Flex direction="row">
+    //                                 <Input
+    //                                     maxLength={2}
+    //                                     fontSize="50"
+    //                                     fontweight="bold"
+    //                                     variant="Outline"
+    //                                     p="0"
+    //                                     width="60"
+    //                                     placeholder="00"
+    //                                     textAlign="right"
+    //                                     keyboardType="numeric"
+    //                                     defaultValue={0}
+    //                                     // onChangeText={(x) => (sec = Number(x.target.value))}
+    //                                 />
+    //                                 <Text fontSize="55" fontWeight="bold">
+    //                                     :
+    //                                 </Text>
+    //                                 <Input
+    //                                     defaultValue={0}
+    //                                     maxLength={2}
+    //                                     fontSize="50"
+    //                                     fontweight="bold"
+    //                                     variant="Outline"
+    //                                     p="0"
+    //                                     width="60"
+    //                                     placeholder="00"
+    //                                     textAlign="right"
+    //                                     keyboardType="numeric"
+    //                                 />
+    //                                 <Text fontSize="55" fontWeight="bold">
+    //                                     :
+    //                                 </Text>
+    //                                 <Input
+    //                                     maxLength={2}
+    //                                     defaultValue={0}
+    //                                     fontSize="50"
+    //                                     fontweight="bold"
+    //                                     variant="Outline"
+    //                                     p="0"
+    //                                     width="60"
+    //                                     placeholder="00"
+    //                                     textAlign="right"
+    //                                     keyboardType="numeric"
+    //                                 />
+    //                             </Flex>
     return (
         <View style={centerstyle.container} justifyContent="center" alignItems="center" display="flex">
             <Center>
                 <Box alignItems="center">
-                    {/* <Input
-                        position="absolute"
-                        top="40%"
-                        fontSize="30"
-                        fontWeight="bold"
-                        variant="Outline"
-                        placeholder="time"
-                        TextAlign="center"
-                        bg="gray.500"
-                        width="210"
-                    /> */}
                     <CountdownCircleTimer
                         updateInterval={0}
                         size={300}
                         strokeWidth={15}
                         isPlaying={timerisplaying}
-                        duration={0}
+                        duration={10}
                         colors="#836bc5"
                     >
-
                         {({ remainingTime }) => {
                             return (
                                 <Text color="blue.500" fontSize="50" fontWeight="bold">

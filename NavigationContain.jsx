@@ -11,7 +11,11 @@ const Tab = createBottomTabNavigator()
 export default function NavigationContain() {
     return (
         <NavigationContainer>
-            <Tab.Navigator screenOptions={{ headerShown: false}}>
+            <Tab.Navigator
+                screenOptions={{
+                    headerShown: false,
+                }}
+            >
                 <Tab.Screen
                     name="Timer"
                     options={{

@@ -1,10 +1,14 @@
 import React from 'react'
 import { Text, View } from 'native-base'
 import { StyleSheet } from 'react-native'
+import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
+
 function HistoryScreen() {
     return (
         <View style={centerstyle.container}>
-            <Text fontSize="40" fontWeight="bold">History</Text>
+            <Text fontSize="40" fontWeight="bold">
+                History
+            </Text>
         </View>
     )
 }
