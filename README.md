@@ -7,7 +7,7 @@
 - set your countdown time and press start icon button to starting new countdown
 - use reset icon button to reset your countdown time when it was finash
 - use the stop button to stop the countdown timer
-- press flag icon button to mark the time with your study state of page
+- press flag icon button to mark the time with your study state of page ***(still unPlublish)***
 
 <img src="https://user-images.githubusercontent.com/76611085/187724496-25b7924c-8bb6-49fb-98e3-7aa4f99abebf.gif" data-canonical-src="hhttps://user-images.githubusercontent.com/76611085/187724496-25b7924c-8bb6-49fb-98e3-7aa4f99abebf.gif" width="200" height="auto" />
 
