@@ -11,7 +11,7 @@
 
 <img src="https://user-images.githubusercontent.com/76611085/187724496-25b7924c-8bb6-49fb-98e3-7aa4f99abebf.gif" data-canonical-src="hhttps://user-images.githubusercontent.com/76611085/187724496-25b7924c-8bb6-49fb-98e3-7aa4f99abebf.gif" width="200" height="auto" />
 
-## info of raw package
+## raw package list
 - ReactNative
 - [react-native-countdown-circle-timer](https://www.npmjs.com/package/react-native-countdown-circle-timer)
 - [reactnavigation](https://reactnavigation.org/)
